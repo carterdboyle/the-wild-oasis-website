@@ -2,6 +2,9 @@ import { Suspense } from "react";
 import CabinList from "@/app/_components/CabinList";
 import Spinner from "@/app/_components/Spinner";
 
+export const revalidate = 3600; // Data changes from time to time
+// export const revalidate = 15; // First visitor causes the data to get updated
+
 export const metadata = {
   title: "Cabins",
 };
