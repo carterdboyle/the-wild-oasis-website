@@ -1,15 +1,18 @@
 import { Suspense } from "react";
 import CabinList from "@/app/_components/CabinList";
 import Spinner from "@/app/_components/Spinner";
+import Filter from "../_components/Filter";
 
-export const revalidate = 3600; // Data changes from time to time
+export const revalidate = 3600; // Data changes from time to time - when search params exist alway dynamically rendered
 // export const revalidate = 15; // First visitor causes the data to get updated
 
 export const metadata = {
   title: "Cabins",
 };
 
-export default function Page() {
+export default function Page({ searchParams }) {
+  const filter = searchParams?.capacity ?? "all";
+
   return (
     <div>
       <h1 className="text-4xl mb-5 text-accent-400 font-medium">
@@ -24,8 +27,12 @@ export default function Page() {
         Welcome to paradise.
       </p>
 
+      <div className="flex justify-end mb-8">
+        <Filter />
+      </div>
+
       <Suspense fallback={<Spinner />}>
-        <CabinList />
+        <CabinList filter={filter} />
       </Suspense>
     </div>
   );
