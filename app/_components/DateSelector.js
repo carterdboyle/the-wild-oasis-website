@@ -41,6 +41,8 @@ function DateSelector({ settings, cabin, bookedDates }) {
         selected={displayRange}
         min={minBookingLength + 1}
         max={maxBookingLength}
+        // Fixing times in the database for proper today activity
+        // Based on UTC midnight
         fromMonth={new Date()}
         fromDate={new Date()}
         toYear={new Date().getFullYear() + 5}

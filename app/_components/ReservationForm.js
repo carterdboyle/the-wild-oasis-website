@@ -16,8 +16,8 @@ function ReservationForm({ cabin, user }) {
   const cabinPrice = numNights * (regularPrice - discount);
 
   const bookingData = {
-    startDate,
-    endDate,
+    startDate: convertToUTCMidnight(startDate),
+    endDate: convertToUTCMidnight(endDate),
     numNights,
     cabinPrice,
     cabinId: id,
@@ -91,6 +91,12 @@ function ReservationForm({ cabin, user }) {
       </form>
     </div>
   );
+}
+
+function convertToUTCMidnight(date) {
+  const newDate = new Date(date);
+  newDate.setUTCHours(0, 0, 0, 0);
+  return newDate;
 }
 
 export default ReservationForm;
