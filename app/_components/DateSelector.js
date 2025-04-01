@@ -37,7 +37,10 @@ function DateSelector({ settings, cabin, bookedDates }) {
       <DayPicker
         className="pt-12 place-self-center mx-10"
         mode="range"
-        onSelect={setRange}
+        onSelect={(range) => {
+          if (!range) setRange({ from: undefined, to: undefined });
+          else setRange(range);
+        }}
         selected={displayRange}
         min={minBookingLength + 1}
         max={maxBookingLength}
