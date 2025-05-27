@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Wild Oasis Website
 
-## Getting Started
+The customer-facing application (SSR) where users can make bookings that will be added to the supabase database. The companion app, [Wild Oasis](https://github.com/carterdboyle/wild-oasis), is for the hotel workers. 
 
-First, run the development server:
+![image](https://github.com/user-attachments/assets/b2d45872-ef51-4ac6-9153-5f1d9bbc84a0)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Usage
+
+To run the application locally you will need the following environment variables:
+
+```
+NEXTAUTH_URL = http://localhost:3000
+SUPABASE_URL = https://<supabase_datbase_id>.supabase.co
+SUPABASE_HOSTNAME = <supabase_database_id>.supabase.co
+CABINS_PATHNAME = /storage/v1/object/public/cabin-images/**
+SUPABASE_KEY = <your_supabase_key>
+NEXTAUTH_SECRET = <your_next_auth_secret>
+AUTH_GOOGLE_ID = <web_client_from_google_console_id>
+AUTH_GOOGLE_SECRET = <web_client_from_google_console_secret>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+If you want to create stock data or see how the database is structured, have a look at the `/src/data/` folder in the worker app [Wild Oasis](https://github.com/carterdboyle/wild-oasis) uncomment line 22 in `src/ui/Sidebar.js`:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+ `{/* <Uploader /> */}`
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+ And import Uploader from the `/src/data` folder. The uploader allows a simple data import feature that resets the database. 
 
-## Learn More
+ Run `npm run dev` after installing dependencies with `npm i`
 
-To learn more about Next.js, take a look at the following resources:
+ ## Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+ - Seamlessly navigate a server-side rendered website with information about the business
+ - View information on cabins
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+  ![image](https://github.com/user-attachments/assets/bd818234-f995-4940-bfde-3e136a7e69c3)
+  
+ - Create bookings at a luxury cabin
 
-## Deploy on Vercel
+  ![image](https://github.com/user-attachments/assets/8c3c9c50-bd9e-439e-829d-3dc19e0b96dc)
+  
+ - Manage existing bookings
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  ![image](https://github.com/user-attachments/assets/3db6d2a3-cdad-4f02-8f49-b93d7eb6d94a)
+ 
+ - Sign in/sign out with Google OAuth 2.0
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+  ![image](https://github.com/user-attachments/assets/1865a81b-7685-468a-beae-a848039b99aa)
+
