@@ -30,8 +30,11 @@
   }
 }
 
-/* For data picker */
+:root {
+  --desktop-lock-width: 1200px;
+}
 
+/* For data picker */
 .rdp {
   --rdp-cell-size: 32px !important;
   --rdp-accent-color: theme("colors.accent.500") !important;
@@ -39,11 +42,26 @@
   margin: 0 !important;
 }
 
+html.mobile-locked .w-desktop-lock {
+  width: var(--desktop-lock-width);
+  min-width: var(--desktop-lock-width);
+}
+
+html.mobile-locked .max-w-7xl {
+  max-width: var(--desktop-lock-width);
+  width: var(--desktop-lock-width);
+}
+
 /* Desktop-lock only when we decide (JS adds .mobile-locked) */
 html.mobile-locked,
 body.mobile-locked {
-  min-width: 1200px; /* force desktop width */
+  min-width: var(--desktop-lock-width); /* force desktop width */
   overflow-x: auto; /* horizontal scroll on mobile */
+}
+
+/* Hide border on landing page */
+html:has(#home-hero-bg) .site-header {
+  border-bottom-color: transparent !important;
 }
 
 /* Banner (mobile-only, fixed top) */

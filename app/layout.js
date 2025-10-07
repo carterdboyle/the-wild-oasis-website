@@ -36,16 +36,16 @@ export default function RootLayout({ children }) {
 
         <div
           id="desktop-gate"
-          class="dg hidden"
+          className="dg hidden"
           role="status"
           aria-live="polite"
         >
-          <div class="dg-inner">
+          <div className="dg-inner">
             <strong>Best viewed on a desktop</strong>
-            <span class="dg-sub">
+            <span className="dg-sub">
               This page isn’t optimized for phones/tablets.
             </span>
-            <div class="dg-actions">
+            <div className="dg-actions">
               <button id="dg-copy" type="button">
                 Copy link
               </button>
